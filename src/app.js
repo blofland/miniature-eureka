@@ -2,14 +2,13 @@ const express = require('express');
 
 
 const app = express()
-
-const port = process.env.PORT || 3001
-
+const {index, create} = require ("./db")
 
 
-app.use("/api/test", (req, res) => {
-    res.send("FU")
-    
-}), 
+app.get("/api/notes", async (req, res)=>{
+    const data = await index()
+    res.send(data)
+})
+
 
 module.exports = app
