@@ -11,3 +11,12 @@ router.route('/')
             res.status(500).send(err)
         }
     })
+    .post(async(req, res, next)=> {
+        if(!req.body.title || !req.body.text)return res.status(400).send("Improper request sent")
+        try {
+            const record = await db.create(req.body)
+            res.send(record)
+        } catch (err){
+            res.send(err)
+        }
+    })
