@@ -12,3 +12,7 @@ A json file is used as it's mock db.
 ---
 
 > Github - https://github.com/blofland/note-taker
+> Heroku - https://aqueous-chamber-48581.herokuapp.com/
+
+# Link to walkthrough video
+https://watch.screencastify.com/v/izyVAjN6b092sOY4nyzg
