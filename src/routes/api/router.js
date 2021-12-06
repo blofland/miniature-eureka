@@ -25,3 +25,12 @@ router.route("/:id")
     const record = await db.record(req.params)
     res.send(record)
 })
+    .delete(async(req, res, next) => {
+        try {
+            const message = await db.destroy(req.params)
+            res.send(message)
+        } catch (err) {
+            res.send(err)
+        }
+    })
+module.exports = router
