@@ -20,3 +20,8 @@ router.route('/')
             res.send(err)
         }
     })
+router.route("/:id")
+    .get(async (req, res) => {
+    const record = await db.record(req.params)
+    res.send(record)
+})
