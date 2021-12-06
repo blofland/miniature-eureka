@@ -1,14 +1,16 @@
-const express = require('express');
+const express = require("express")
+const path = require("path")
 
 
 const app = express()
-const {index, create} = require ("./db")
+const index = path.resolve(__dirname, "../public/index.html")
+app.use(express.json())
+app.use(express.urlencoded({extended: true}))
+app.use(express.static("public"));
 
-
-app.get("/api/notes", async (req, res)=>{
-    const data = await index()
-    res.send(data)
+app.use("/", (req, res) => {
+  res.sendFile(index)
 })
 
 
-module.exports = app
+module.exports = app 
